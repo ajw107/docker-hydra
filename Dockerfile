@@ -22,11 +22,11 @@ ENV GITBRANCH="master"
 RUN apk update && \
     apk add nano git
 ENV TERM=xterm-color
-RUN echo $'#!/bin/bash\nls -alF --color=auto --group-directories-first --time-style=+"%H:%M %d/%m/%Y" --block-size="\'1" $@' > /usr/bin/ll
-RUN chmod +x /usr/bin/ll
+#RUN echo $'#!/bin/bash\nls -alF --color=auto --group-directories-first --time-style=+"%H:%M %d/%m/%Y" --block-size="\'1" $@' > /usr/bin/ll
 
 # copy local files
 COPY root/ /
+RUN chmod +x /usr/bin/ll
 
 # ports and volumes
 EXPOSE 5075
