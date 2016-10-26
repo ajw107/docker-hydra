@@ -32,4 +32,4 @@ RUN chmod +x /usr/bin/ll
 EXPOSE 5075
 # WORKDIR /config/hydra
 #VOLUME /config /downloads
-VOLUME /config /mnt
+VOLUME "${CONFIG}" /mnt
