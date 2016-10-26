@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 
-cd /config/hydra
+#variables set in /etc/cont-init.d/20 I think
 
 exec \
-	s6-setuidgid abc python /config/hydra/nzbhydra.py \
-	--nobrowser
+	s6-setuidgid abc "$APP_COMP" "$APPDIR/${APP_EXEC}" \
+         "$APP_OPTS"
