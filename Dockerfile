@@ -1,5 +1,5 @@
 FROM lsiobase/alpine.python
-MAINTAINER sparklyballs
+MAINTAINER sparklyballs, Alex Wood (ajw107)
 
 # set version label
 ARG BUILD_DATE
