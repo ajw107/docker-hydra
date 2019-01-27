@@ -3,7 +3,7 @@
 #update hydra version
 new_hydra_ver=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]')
 new_hydra_ver=${new_hydra_ver#v}
-current_hydra_ver=$(find /tmp/hydra -iname core-*.jar | grep -o '[0-9]\.[0-9]\.[0-9]')
+current_hydra_ver=$(find "${APP_ROOT}/${APPDIRNAME}" -iname core-*.jar | grep -o '[0-9]\.[0-9]\.[0-9]')
 #current_hydra_ver=$(java -jar -DfromWrapper "${APP_ROOT}/${APPDIRNAME}/lib/core-2.3.1-exec.jar" --version | awk '{print $NF}')
 current_hydra_ver=${current_hydra_ver#v}
 echo "Current Hydra Version: [${current_hydra_ver}]"
