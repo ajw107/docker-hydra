@@ -47,10 +47,10 @@ RUN \
 "https://github.com/theotherp/nzbhydra2/releases/download/v${HYDRA_VER}/nzbhydra2-${HYDRA_VER}-linux.zip" && \
   mkdir -p "${APP_ROOT}/${APPDIRNAME}" && \
   unzip /tmp/hydra2.zip -d "${APP_ROOT}/${APPDIRNAME}" && \
-  curl -o \
-    "${APP_ROOT}/${APPDIRNAME}/nzbhydra2wrapper.py" -L \
-	"https://raw.githubusercontent.com/theotherp/nzbhydra2/master/other/wrapper/nzbhydra2wrapper.py" && \
-  chmod +x "${APP_ROOT}/${APPDIRNAME}/nzbhydra2wrapper.py" && \
+#  curl -o \
+#    "${APP_ROOT}/${APPDIRNAME}/nzbhydra2wrapper.py" -L \
+#	"https://raw.githubusercontent.com/theotherp/nzbhydra2/master/other/wrapper/nzbhydra2wrapper.py" && \
+#  chmod +x "${APP_ROOT}/${APPDIRNAME}/nzbhydra2wrapper.py" && \
   echo "**** cleanup ****" && \
   rm -rf \
 	/tmp/* \
