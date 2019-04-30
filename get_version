@@ -1,6 +1,5 @@
-HYDRA_VER=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases/latest" \
+PROG_VER=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases/latest" \
           | awk '/tag_name/{print $4}' FS='["]');
-HYDRA_VER=${HYDRA_VER#v};
-echo "VERSION: [${HYDRA_VER}]"
-chmod 777 /VERSION
-echo "${HYDRA_VER}">/VERSION/HYDRA_VER
+PROG_VER=${PROG_VER#v};
+chmod -R 777 $(dirname ${VERSION_FILE})
+echo "${PROG_VER}">${VERSION_FILE}
