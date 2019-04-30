@@ -29,13 +29,17 @@ RUN apt update && \
 ENV TERM=xterm-color
 #RUN echo $'#!/bin/bash\nls -alF --color=auto --group-directories-first --time-style=+"%H:%M %d/%m/%Y" --block-size="\'1" $@' > /usr/bin/ll
 
+COPY get_version /get_version
+VOLUME /VERSION
 RUN \
   echo "**** install hydra2 ****" && \
-  if [ -z ${HYDRA2_RELEASE+x} ]; \
+  if [ -z ${HYDRA_VER+x} ]; \
   then \
-      HYDRA_VER=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases/latest" \
-          | awk '/tag_name/{print $4;exit}' FS='[""]'); \
-      HYDRA_VER=${HYDRA_VER#v}; \
+#      HYDRA_VER=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases/latest" \
+#          | awk '/tag_name/{print $4;exit}' FS='[""]'); \
+#      HYDRA_VER=${HYDRA_VER#v}; \
+       sh /get_version; \
+       HYDRA_VER=$(cat /VERSION/HYDRA_VER); \
   fi && \
   echo "Hydra Ver: [${HYDRA_VER}]" && \
   curl -o \
