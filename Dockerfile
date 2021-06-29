@@ -1,4 +1,4 @@
-FROM lsiobase/ubuntu:bionic
+FROM lsiobase/ubuntu:focal
 #FROM openjdk:jre-slim
 MAINTAINER sparklyballs, ajw107 (Alex Wood)
 
